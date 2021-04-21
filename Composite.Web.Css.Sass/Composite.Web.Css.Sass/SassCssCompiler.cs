@@ -10,6 +10,7 @@ namespace Orckestra.Web.Css.Sass
 {
     public class SassCssCompiler : ICssCompiler
     {
+        private static object _lockerCompilation = new object();
         private const string  FileExtention = ".scss";
         public bool SupportsExtension(string extension)
         {
@@ -50,14 +51,15 @@ namespace Orckestra.Web.Css.Sass
                 throw new CssCompileException("Compiling sass caused a scripting host error. " +
                     string.Format("Error status: {0}. File: {1}. Line: {2}. Column: {3}. Message: {4}", result.ErrorStatus, result.ErrorFile, result.ErrorLine, result.ErrorColumn, result.ErrorMessage));
             }
-
-            C1File.WriteAllText(cssFilePath, result.Output);
-
-            if (folderLastUpdatedUtc.HasValue)
+            lock(_lockerCompilation)
             {
-                File.SetLastWriteTimeUtc(cssFilePath, folderLastUpdatedUtc.Value);
+                C1File.WriteAllText(cssFilePath, result.Output);
+
+                if (folderLastUpdatedUtc.HasValue)
+                {
+                    File.SetLastWriteTimeUtc(cssFilePath, folderLastUpdatedUtc.Value);
+                }
             }
         }
-
     }
 }

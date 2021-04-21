@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -26,6 +27,11 @@ namespace Orckestra.Web.Css.Sass
 
         public void Init(HttpApplication application)
         {
+            bool packageEnabled = ConfigurationManager.AppSettings["Orckestra.Web.Css.Sass"] == "true";
+            if (!packageEnabled)
+            {
+                return;
+            }
             application.BeginRequest += (a, b) => context_BeginRequest(application.Context);
         }
 

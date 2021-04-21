@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="yes"?>
 <mi:PackageInstaller xmlns:mi="http://www.composite.net/ns/management/packageinstaller/1.0">
 	<mi:PackageRequirements minimumCompositeVersion="6.8" maximumCompositeVersion="9.9999.9999.9999" />
-	<mi:PackageInformation name="Orckestra.Web.Css.Sass" groupName="Orckestra.Web" version="2.0.2" author="Orckestra A/S" website="https://c1.orckestra.com/" readMoreUrl="https://c1.orckestra.com/Add-ons/All/Orckestra.Web.Css.Sass" id="d665fbe2-3ca1-4c3a-b25b-79e4760e0c16" canBeUninstalled="true" systemLocking="hard" flushOnCompletion="false">
+	<mi:PackageInformation name="Orckestra.Web.Css.Sass" groupName="Orckestra.Web" version="2.0.3" author="Orckestra A/S" website="https://c1.orckestra.com/" readMoreUrl="https://c1.orckestra.com/Add-ons/All/Orckestra.Web.Css.Sass" id="d665fbe2-3ca1-4c3a-b25b-79e4760e0c16" canBeUninstalled="true" systemLocking="hard" flushOnCompletion="false">
 		<TechnicalDetails>Based on libsass-net (https://github.com/darrenkopp/libsass-net/).</TechnicalDetails>
 		<Description>Allows you to create and use dynamic CSS's  by integrating .scss support on your CMS website (http://sass-lang.com/)</Description>
 	</mi:PackageInformation>
